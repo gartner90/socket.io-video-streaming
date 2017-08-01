@@ -17,6 +17,11 @@ io.on('connection', function(socket) {
 	socket.on('stream', function(image) {
 		socket.broadcast.emit('stream', image);
 	});
+
+	socket.on('radio', function(blob) {
+	    // can choose to broadcast it to whoever you want
+	    socket.broadcast.emit('voice', blob);
+	});
 });
 
 app.set('port', (port));
