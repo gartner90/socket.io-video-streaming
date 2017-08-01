@@ -9,7 +9,8 @@ $(function() {
 	context.height = canvas.height;
 
 	var video = document.getElementById("video");
-	var socket = io.connect('http://localhost:8080', { 'forceNew': true});
+	console.log('win', window);
+	var socket = io();
 	function logger(msg) {
 		$('#logger').text(msg);
 	}

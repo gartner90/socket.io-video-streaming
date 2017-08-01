@@ -19,6 +19,6 @@ io.on('connection', function(socket) {
 	});
 });
 
-server.listen(8080, function() {
+server.listen(port, function() {
 	console.log('servidor corriendo en ', port);
 });
