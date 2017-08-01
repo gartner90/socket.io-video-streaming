@@ -4,7 +4,7 @@
   "description": "",
   "main": "server/main.js",
   "scripts": {
-    "start": "nodemon server/main.js"
+    "start": "node server/main.js"
   },
   "engines": {
     "node": "6.9.1"
