@@ -1,9 +1,19 @@
 {
-	"name": "test-video",
-	"version": "0.0.1",
-	"dependencies": {
-		"socket.io": "*",
-		"express": "*",
-		"log": "*"
-	}
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC", 
+  "dependencies": {
+    "express": "^4.15.3",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
 }
