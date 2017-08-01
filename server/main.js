@@ -17,6 +17,6 @@ io.on('connection', function(socket) {
 	});
 });
 
-server.listen(9090, function() {
-	console.log('servidor corriendo en 9090');
+server.listen(8080, function() {
+	console.log('servidor corriendo en 8080');
 });
