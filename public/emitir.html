@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Emitir</title>
+	<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+ -->	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>	
+<body>
+	<video src="" id="video" style="width: 680px; height: 320px;" autoplay="true"></video>
+
+	<canvas id="preview" style="display: nonex"></canvas>
+
+	<div id="logger"></div>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById('preview');
+		var context = canvas.getContext("2d");
+
+		canvas.width = 800;
+		canvas.height = 600;
+
+		context.width = canvas.width;
+		context.height = canvas.height;
+
+		var video = document.getElementById("video");
+		var socket = io();
+
+		function logger(msg) {
+			$('#logger').text(msg);
+		}
+
+		function loadCam(stream) {
+			video.src = window.URL.createObjectURL(stream);
+			logger('Camara cargada correctamente')
+		}
+
+		function loadfail(stream) {
+			logger('Camara MAL cargada')
+		}
+
+		function viewVideo() {
+			context.drawImage(video, 0, 0, context.width, context.height);
+			socket.emit('stream', canvas.toDataURL('image/webp'));
+		}
+
+		$(function() {
+			navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia );
+
+			if (navigator.getUserMedia) {
+				navigator.getUserMedia({video: true},loadCam, loadfail)
+			} else {
+				console.log('no navigator.getUserMedia');
+			}
+
+			setInterval(function() {
+				viewVideo(video, context);
+			},100)
+		});
+	</script>
+</body>
+</html>

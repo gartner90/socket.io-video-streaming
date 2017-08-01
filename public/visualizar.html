@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Visualizar</title>
+	<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+</head>
+<body>
+	<img src="" id="play">
+	<div id="logger"></div>
+
+	<script>
+	var socket = io();
+	socket.on('stream', function(image) {
+		var img = document.getElementById('play');
+		img.src = image;
+		$('#logger').text(image);
+	});
+	</script>
+</body>
+</html>
