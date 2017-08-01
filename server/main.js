@@ -3,6 +3,8 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
+var port = process.env.PORT || 8080;
+
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
@@ -18,5 +20,5 @@ io.on('connection', function(socket) {
 });
 
 server.listen(8080, function() {
-	console.log('servidor corriendo en 8080');
+	console.log('servidor corriendo en ', port);
 });
