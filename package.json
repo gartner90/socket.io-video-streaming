@@ -1,22 +1,25 @@
 {
-  "name": "test",
+  "name": "Xirsys",
   "version": "1.0.0",
-  "description": "",
-  "main": "server/main.js",
+  "description": "Xirsys Examples for V3 API",
+  "main": "server.js",
   "scripts": {
-    "start": "node server/main.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "myinstall": "npm install",
+    "start": "nodemon server.js",
+    "uninstall": "npm uninstall -s"
   },
-  "engines": {
-    "node": "6.9.1"
+  "repository": {
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC", 
-  "dependencies": {
-    "express": "^4.15.3",
-    "socket.io": "^2.0.3"
+  "author": "Xirsys",
+  "license": "GPL-1.0",
+  "bugs": {
   },
-  "devDependencies": {
-    "nodemon": "^1.11.0"
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "method-override": "^2.3.8",
+    "config": "~1.21.0",
+    "express": "~4.14.0"
   }
 }
