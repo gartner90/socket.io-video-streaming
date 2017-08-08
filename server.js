@@ -6,12 +6,12 @@ const config = require('config');
 const  httpport = process.env.PORT || config.get('host').httpport ||3080,
        httpsport = process.env.SECURE_PORT || config.get('host').httpssport ||3443;
 
-var httpsOptions = {
-    key: fs.readFileSync('./app/cert/server.key'), 
-    cert: fs.readFileSync('./app/cert/server.crt')
-};
+// var httpsOptions = {
+//     key: fs.readFileSync('./app/cert/server.key'), 
+//     cert: fs.readFileSync('./app/cert/server.crt')
+// };
 
-https.createServer(httpsOptions, app).listen(httpsport, function (err) {
+https.createServer(app).listen(httpsport, function (err) {
     if (err) {
         throw err
     }
