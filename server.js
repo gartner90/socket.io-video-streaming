@@ -1,14 +1,31 @@
-// Load the http module to create an http server.
-var http = require('http');
+const https = require('https');
+const http = require('http');
+const app = require('./app');
+const fs = require('fs');
+const config = require('config');
+const  httpport = process.env.PORT || config.get('host').httpport ||3080,
+       httpsport = process.env.SECURE_PORT || config.get('host').httpssport ||3443;
 
-// Configure our HTTP server to respond with Hello World to all requests.
-var server = http.createServer(function (request, response) {
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Hello World\n");
+// var httpsOptions = {
+//     key: fs.readFileSync('./app/cert/server.key'), 
+//     cert: fs.readFileSync('./app/cert/server.crt')
+// };
+
+var httpsOptions = {
+    key: fs.readFileSync('./server.key'), 
+    cert: fs.readFileSync('./server.crt')
+};
+
+https.createServer(httpsOptions, app).listen(httpsport, function (err) {
+    if (err) {
+        throw err
+    }
+    console.log('Secure server is listening on '+httpsport+'...');
 });
 
-// Listen on port 8000, IP defaults to 127.0.0.1
-server.listen(8000);
-
-// Put a friendly message on the terminal
-console.log("Server running at http://127.0.0.1:8000/");
+http.createServer(app).listen(httpport, function(err) {
+    if (err) {
+        throw err
+    }
+    console.log('Insecure server is listening on port ' + httpport + '...');
+});
