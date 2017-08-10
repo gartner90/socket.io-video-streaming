@@ -4,50 +4,20 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Video OneWay Broadcasting using RTCMultiConnection</title>
+  <title>Prueba de Streaming</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="shortcut icon" href="/demos/logo.png">
   <link rel="stylesheet" type="text/css" href="/demos/stylesheet.css">
 </head>
 <body>
-  <header>
-    <a class="logo" href="/"><img src="/demos/logo.png" alt="RTCMultiConnection"></a>
-    <nav>
-      <li>
-        <a href="http://www.rtcmulticonnection.org/docs/getting-started/">Getting Started</a>
-      </li>
-      <li>
-        <a href="http://www.rtcmulticonnection.org/FAQ/">FAQ</a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/playlist?list=PLPRQUXAnRydKdyun-vjKPMrySoow2N4tl">YouTube</a>
-      </li>
-      <li>
-        <a href="https://github.com/muaz-khan/RTCMultiConnection#v3-demos">Demos</a>
-      </li>
-      <li>
-        <a href="https://github.com/muaz-khan/RTCMultiConnection/wiki">Wiki</a>
-      </li>
-      <li>
-        <a href="https://github.com/muaz-khan/RTCMultiConnection">Github</a>
-      </li>
-    </nav>
-  </header>
-
-  <h1>
-    Video OneWay Broadcasting using RTCMultiConnection
-    <p>
-      Multi-user (one-to-many) video broadcasting using star topology.
-    </p>
-  </h1>
 
   <section class="make-center">
     <input type="text" id="room-id" value="abcdef" autocorrect=off autocapitalize=off size=20>
-    <button id="open-room">Open Room</button>
-    <button id="join-room">Join Room</button>
-    <button id="open-or-join-room">Auto Open Or Join Room</button>
+    <button id="open-room">Iniciar</button>
+    <button id="join-room">Entrar</button>
+    <button id="open-or-join-room">Reconectar</button>
 
-    <div id="room-urls" style="text-align: center;display: none;background: #F1EDED;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;"></div>
+    <div id="room-urls" style="text-align: center;display: none;background: #fff;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;"></div>
 
     <div id="videos-container"></div>
   </section>
@@ -161,7 +131,7 @@ function showRoomURL(roomid) {
     var roomHashURL = '#' + roomid;
     var roomQueryStringURL = '?roomid=' + roomid;
 
-    var html = '<h2>Unique URL for your room:</h2><br>';
+    var html = '<h2>Prueba de Streaming Público</h2><br>';
 
     html += 'Hash URL: <a href="' + roomHashURL + '" target="_blank">' + roomHashURL + '</a>';
     html += '<br>';

@@ -75,7 +75,7 @@ a {
 }
 
 a, h2 {
-    color: #EC008C;
+    color: #3F51B5;
 }
 
 a:hover {
@@ -83,7 +83,7 @@ a:hover {
 }
 
 .highlighted {
-    color: #EC008C;
+    color: #3F51B5;
 }
 
 .make-center {
